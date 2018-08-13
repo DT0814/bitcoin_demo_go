@@ -1,13 +1,8 @@
 package main
 
-import (
-	"core"
-	"fmt"
-	"strconv"
-	"time"
-)
+import "core"
 
-func main1() {
+/*func main1() {
 	bc := core.NewBlockChain()
 
 	bc.AddBlock("one")
@@ -19,8 +14,8 @@ func main1() {
 		fmt.Printf("Hash     %x \n", block.Hash)
 		fmt.Println()
 	}
-}
-func main() {
+}*/
+/*func main2() {
 	unix1 := time.Now().Unix()
 	fmt.Printf("%d\n", unix1)
 	bc := core.NewBlockChain()
@@ -42,5 +37,14 @@ func main() {
 
 		fmt.Println()
 	}
+
+}
+*/
+func main() {
+	bc := core.NewBlockChain()
+	defer bc.Db.Close()
+
+	cli := core.CLI{bc}
+	cli.Run()
 
 }
